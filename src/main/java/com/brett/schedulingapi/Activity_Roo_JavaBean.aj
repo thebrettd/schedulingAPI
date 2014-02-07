@@ -3,6 +3,10 @@
 
 package com.brett.schedulingapi;
 
+import com.brett.schedulingapi.Activity;
+import com.brett.schedulingapi.Schedule;
+import com.brett.schedulingapi.Vendor;
+
 privileged aspect Activity_Roo_JavaBean {
     
     public String Activity.getName() {

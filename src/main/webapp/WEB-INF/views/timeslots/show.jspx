@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_brett_schedulingapi_TimeSlot" object="${timeslot}" path="/timeslots" z="nAJIQBHz+TiKrIKQDN37FS+sGWg=">
+        <field:display calendar="true" dateTimePattern="${timeSlot_slotdate_date_format}" field="slotDate" id="s_com_brett_schedulingapi_TimeSlot_slotDate" object="${timeslot}" z="N9s4YA+8OqudqSiDTe7ENAEiF2E="/>
+        <field:display field="capacity" id="s_com_brett_schedulingapi_TimeSlot_capacity" object="${timeslot}" z="l7gDEQMpkdi5CyRBx/opYyXVWiE="/>
+        <field:display field="owner" id="s_com_brett_schedulingapi_TimeSlot_owner" object="${timeslot}" z="ZJw9eDf9gobl9iUpAbxYaY6T6LY="/>
+        <field:display field="capacityUsed" id="s_com_brett_schedulingapi_TimeSlot_capacityUsed" object="${timeslot}" z="u+/FHEvLAWlpvAxge8BuE9jw3Ug="/>
+    </page:show>
+</div>

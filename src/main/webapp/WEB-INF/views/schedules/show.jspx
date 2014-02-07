@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_brett_schedulingapi_Schedule" object="${schedule}" path="/schedules" z="tzZBMe0ltV6/5zPG+2OoQasXwkk=">
+        <field:display field="timeSlots" id="s_com_brett_schedulingapi_Schedule_timeSlots" object="${schedule}" z="h6jkEw5J/l0N4609KgZxA+Fi8QU="/>
+        <field:display field="owner" id="s_com_brett_schedulingapi_Schedule_owner" object="${schedule}" z="g+0XKoVjWxkOes7B57PNZrvNPNI="/>
+    </page:show>
+</div>

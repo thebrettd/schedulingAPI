@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_brett_schedulingapi_TimeSlot" items="${timeslots}" z="bMnFqT4c6ng8FZHm+lvMs8z2FBo=">
+        <table:table data="${timeslots}" id="l_com_brett_schedulingapi_TimeSlot" path="/timeslots" z="a8WWWkHTzA6okumEayOyhGB6vrE=">
+            <table:column calendar="true" dateTimePattern="${timeSlot_slotdate_date_format}" id="c_com_brett_schedulingapi_TimeSlot_slotDate" property="slotDate" z="9NVnWL5iRd+I9YWbcRct8LCaV0A="/>
+            <table:column id="c_com_brett_schedulingapi_TimeSlot_capacity" property="capacity" z="plvEj6+3/QCOwoVEO2KjB0aw7Hc="/>
+            <table:column id="c_com_brett_schedulingapi_TimeSlot_owner" property="owner" z="M1A34l21ZmNuxbrZjk2DB6f1nTg="/>
+            <table:column id="c_com_brett_schedulingapi_TimeSlot_capacityUsed" property="capacityUsed" z="+WiEaKDABqCGkau5vDX+twMk0rs="/>
+        </table:table>
+    </page:list>
+</div>
