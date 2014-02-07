@@ -3,97 +3,97 @@
 
 package com.brett.schedulingapi;
 
-import com.brett.schedulingapi.SlotMap;
+import com.brett.schedulingapi.TimeSlot;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import org.springframework.transaction.annotation.Transactional;
 
-privileged aspect SlotMap_Roo_Jpa_ActiveRecord {
+privileged aspect TimeSlot_Roo_Jpa_ActiveRecord {
     
     @PersistenceContext
-    transient EntityManager SlotMap.entityManager;
+    transient EntityManager TimeSlot.entityManager;
     
-    public static final List<String> SlotMap.fieldNames4OrderClauseFilter = java.util.Arrays.asList("");
+    public static final List<String> TimeSlot.fieldNames4OrderClauseFilter = java.util.Arrays.asList("slotDate", "capacity", "owner", "capacityUsed");
     
-    public static final EntityManager SlotMap.entityManager() {
-        EntityManager em = new SlotMap().entityManager;
+    public static final EntityManager TimeSlot.entityManager() {
+        EntityManager em = new TimeSlot().entityManager;
         if (em == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
         return em;
     }
     
-    public static long SlotMap.countSlotMaps() {
-        return entityManager().createQuery("SELECT COUNT(o) FROM SlotMap o", Long.class).getSingleResult();
+    public static long TimeSlot.countTimeSlots() {
+        return entityManager().createQuery("SELECT COUNT(o) FROM TimeSlot o", Long.class).getSingleResult();
     }
     
-    public static List<SlotMap> SlotMap.findAllSlotMaps() {
-        return entityManager().createQuery("SELECT o FROM SlotMap o", SlotMap.class).getResultList();
+    public static List<TimeSlot> TimeSlot.findAllTimeSlots() {
+        return entityManager().createQuery("SELECT o FROM TimeSlot o", TimeSlot.class).getResultList();
     }
     
-    public static List<SlotMap> SlotMap.findAllSlotMaps(String sortFieldName, String sortOrder) {
-        String jpaQuery = "SELECT o FROM SlotMap o";
+    public static List<TimeSlot> TimeSlot.findAllTimeSlots(String sortFieldName, String sortOrder) {
+        String jpaQuery = "SELECT o FROM TimeSlot o";
         if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
             jpaQuery = jpaQuery + " ORDER BY " + sortFieldName;
             if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
                 jpaQuery = jpaQuery + " " + sortOrder;
             }
         }
-        return entityManager().createQuery(jpaQuery, SlotMap.class).getResultList();
+        return entityManager().createQuery(jpaQuery, TimeSlot.class).getResultList();
     }
     
-    public static SlotMap SlotMap.findSlotMap(Long id) {
+    public static TimeSlot TimeSlot.findTimeSlot(Long id) {
         if (id == null) return null;
-        return entityManager().find(SlotMap.class, id);
+        return entityManager().find(TimeSlot.class, id);
     }
     
-    public static List<SlotMap> SlotMap.findSlotMapEntries(int firstResult, int maxResults) {
-        return entityManager().createQuery("SELECT o FROM SlotMap o", SlotMap.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
+    public static List<TimeSlot> TimeSlot.findTimeSlotEntries(int firstResult, int maxResults) {
+        return entityManager().createQuery("SELECT o FROM TimeSlot o", TimeSlot.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
-    public static List<SlotMap> SlotMap.findSlotMapEntries(int firstResult, int maxResults, String sortFieldName, String sortOrder) {
-        String jpaQuery = "SELECT o FROM SlotMap o";
+    public static List<TimeSlot> TimeSlot.findTimeSlotEntries(int firstResult, int maxResults, String sortFieldName, String sortOrder) {
+        String jpaQuery = "SELECT o FROM TimeSlot o";
         if (fieldNames4OrderClauseFilter.contains(sortFieldName)) {
             jpaQuery = jpaQuery + " ORDER BY " + sortFieldName;
             if ("ASC".equalsIgnoreCase(sortOrder) || "DESC".equalsIgnoreCase(sortOrder)) {
                 jpaQuery = jpaQuery + " " + sortOrder;
             }
         }
-        return entityManager().createQuery(jpaQuery, SlotMap.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
+        return entityManager().createQuery(jpaQuery, TimeSlot.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
     @Transactional
-    public void SlotMap.persist() {
+    public void TimeSlot.persist() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.persist(this);
     }
     
     @Transactional
-    public void SlotMap.remove() {
+    public void TimeSlot.remove() {
         if (this.entityManager == null) this.entityManager = entityManager();
         if (this.entityManager.contains(this)) {
             this.entityManager.remove(this);
         } else {
-            SlotMap attached = SlotMap.findSlotMap(this.id);
+            TimeSlot attached = TimeSlot.findTimeSlot(this.id);
             this.entityManager.remove(attached);
         }
     }
     
     @Transactional
-    public void SlotMap.flush() {
+    public void TimeSlot.flush() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.flush();
     }
     
     @Transactional
-    public void SlotMap.clear() {
+    public void TimeSlot.clear() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.clear();
     }
     
     @Transactional
-    public SlotMap SlotMap.merge() {
+    public TimeSlot TimeSlot.merge() {
         if (this.entityManager == null) this.entityManager = entityManager();
-        SlotMap merged = this.entityManager.merge(this);
+        TimeSlot merged = this.entityManager.merge(this);
         this.entityManager.flush();
         return merged;
     }

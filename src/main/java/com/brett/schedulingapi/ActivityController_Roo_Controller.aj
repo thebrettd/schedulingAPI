@@ -3,10 +3,6 @@
 
 package com.brett.schedulingapi;
 
-import com.brett.schedulingapi.Activity;
-import com.brett.schedulingapi.ActivityController;
-import com.brett.schedulingapi.Schedule;
-import com.brett.schedulingapi.Vendor;
 import java.io.UnsupportedEncodingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;

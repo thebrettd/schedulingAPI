@@ -3,11 +3,11 @@
 
 package com.brett.schedulingapi;
 
-import com.brett.schedulingapi.SlotMap;
+import com.brett.schedulingapi.TimeSlot;
 import org.springframework.beans.factory.annotation.Configurable;
 
-privileged aspect SlotMap_Roo_Configurable {
+privileged aspect TimeSlot_Roo_Configurable {
     
-    declare @type: SlotMap: @Configurable;
+    declare @type: TimeSlot: @Configurable;
     
 }

@@ -3,13 +3,13 @@
 
 package com.brett.schedulingapi;
 
-import com.brett.schedulingapi.SlotMap;
+import com.brett.schedulingapi.TimeSlot;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
-privileged aspect SlotMap_Roo_ToString {
+privileged aspect TimeSlot_Roo_ToString {
     
-    public String SlotMap.toString() {
+    public String TimeSlot.toString() {
         return ReflectionToStringBuilder.toString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
     

@@ -3,10 +3,6 @@
 
 package com.brett.schedulingapi;
 
-import com.brett.schedulingapi.Activity;
-import com.brett.schedulingapi.ActivityDataOnDemand;
-import com.brett.schedulingapi.Schedule;
-import com.brett.schedulingapi.VendorDataOnDemand;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Iterator;

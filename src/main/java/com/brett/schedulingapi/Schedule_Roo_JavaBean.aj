@@ -3,17 +3,27 @@
 
 package com.brett.schedulingapi;
 
+import com.brett.schedulingapi.Activity;
 import com.brett.schedulingapi.Schedule;
-import com.brett.schedulingapi.SlotMap;
+import com.brett.schedulingapi.TimeSlot;
+import java.util.Set;
 
 privileged aspect Schedule_Roo_JavaBean {
     
-    public SlotMap Schedule.getSlotMap() {
-        return this.slotMap;
+    public Set<TimeSlot> Schedule.getTimeSlots() {
+        return this.timeSlots;
     }
     
-    public void Schedule.setSlotMap(SlotMap slotMap) {
-        this.slotMap = slotMap;
+    public void Schedule.setTimeSlots(Set<TimeSlot> timeSlots) {
+        this.timeSlots = timeSlots;
+    }
+    
+    public Activity Schedule.getOwner() {
+        return this.owner;
+    }
+    
+    public void Schedule.setOwner(Activity owner) {
+        this.owner = owner;
     }
     
 }

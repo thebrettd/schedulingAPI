@@ -5,6 +5,8 @@ package com.brett.schedulingapi;
 
 import com.brett.schedulingapi.Activity;
 import com.brett.schedulingapi.ApplicationConversionServiceFactoryBean;
+import com.brett.schedulingapi.Schedule;
+import com.brett.schedulingapi.TimeSlot;
 import com.brett.schedulingapi.Vendor;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.core.convert.converter.Converter;
@@ -38,6 +40,54 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         };
     }
     
+    public Converter<Schedule, String> ApplicationConversionServiceFactoryBean.getScheduleToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<com.brett.schedulingapi.Schedule, java.lang.String>() {
+            public String convert(Schedule schedule) {
+                return "(no displayable fields)";
+            }
+        };
+    }
+    
+    public Converter<Long, Schedule> ApplicationConversionServiceFactoryBean.getIdToScheduleConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.brett.schedulingapi.Schedule>() {
+            public com.brett.schedulingapi.Schedule convert(java.lang.Long id) {
+                return Schedule.findSchedule(id);
+            }
+        };
+    }
+    
+    public Converter<String, Schedule> ApplicationConversionServiceFactoryBean.getStringToScheduleConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.brett.schedulingapi.Schedule>() {
+            public com.brett.schedulingapi.Schedule convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), Schedule.class);
+            }
+        };
+    }
+    
+    public Converter<TimeSlot, String> ApplicationConversionServiceFactoryBean.getTimeSlotToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<com.brett.schedulingapi.TimeSlot, java.lang.String>() {
+            public String convert(TimeSlot timeSlot) {
+                return new StringBuilder().append(timeSlot.getSlotDate()).append(' ').append(timeSlot.getCapacity()).append(' ').append(timeSlot.getCapacityUsed()).toString();
+            }
+        };
+    }
+    
+    public Converter<Long, TimeSlot> ApplicationConversionServiceFactoryBean.getIdToTimeSlotConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.brett.schedulingapi.TimeSlot>() {
+            public com.brett.schedulingapi.TimeSlot convert(java.lang.Long id) {
+                return TimeSlot.findTimeSlot(id);
+            }
+        };
+    }
+    
+    public Converter<String, TimeSlot> ApplicationConversionServiceFactoryBean.getStringToTimeSlotConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.brett.schedulingapi.TimeSlot>() {
+            public com.brett.schedulingapi.TimeSlot convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), TimeSlot.class);
+            }
+        };
+    }
+    
     public Converter<Vendor, String> ApplicationConversionServiceFactoryBean.getVendorToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.brett.schedulingapi.Vendor, java.lang.String>() {
             public String convert(Vendor vendor) {
@@ -66,6 +116,12 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         registry.addConverter(getActivityToStringConverter());
         registry.addConverter(getIdToActivityConverter());
         registry.addConverter(getStringToActivityConverter());
+        registry.addConverter(getScheduleToStringConverter());
+        registry.addConverter(getIdToScheduleConverter());
+        registry.addConverter(getStringToScheduleConverter());
+        registry.addConverter(getTimeSlotToStringConverter());
+        registry.addConverter(getIdToTimeSlotConverter());
+        registry.addConverter(getStringToTimeSlotConverter());
         registry.addConverter(getVendorToStringConverter());
         registry.addConverter(getIdToVendorConverter());
         registry.addConverter(getStringToVendorConverter());

@@ -11,5 +11,13 @@
             <menu:item id="i_activity_new" messageCode="global_menu_new" url="/activitys?form" z="humNnazx/vh/qV9QiaaPFxfrRKQ="/>
             <menu:item id="i_activity_list" messageCode="global_menu_list" url="/activitys?page=1&amp;size=${empty param.size ? 10 : param.size}" z="Xp5og2rY8Oyevfsbh0NHJCrRUu4="/>
         </menu:category>
+        <menu:category id="c_timeslot" z="vPVDrtrs+D4d05Rd+2tFjFjkPgI=">
+            <menu:item id="i_timeslot_new" messageCode="global_menu_new" url="/timeslots?form" z="vri4xfPVjOHC5K10WHfBPwTxdis="/>
+            <menu:item id="i_timeslot_list" messageCode="global_menu_list" url="/timeslots?page=1&amp;size=${empty param.size ? 10 : param.size}" z="v6CQUABMRNWXNBhh1RRAQzBexsI="/>
+        </menu:category>
+        <menu:category id="c_schedule" z="OVZfNuLZqPLu5Cbgn0FVuQj+lw0=">
+            <menu:item id="i_schedule_new" messageCode="global_menu_new" url="/schedules?form" z="fEbB1TLoAMHgihJiyLpD/K1mMI0="/>
+            <menu:item id="i_schedule_list" messageCode="global_menu_list" url="/schedules?page=1&amp;size=${empty param.size ? 10 : param.size}" z="a/r1d6sKwcNadI1IqZ37gsZ4WRs="/>
+        </menu:category>
     </menu:menu>
 </div>

@@ -3,7 +3,7 @@
 
 package com.brett.schedulingapi;
 
-import com.brett.schedulingapi.SlotMap;
+import com.brett.schedulingapi.TimeSlot;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,32 +11,32 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Version;
 
-privileged aspect SlotMap_Roo_Jpa_Entity {
+privileged aspect TimeSlot_Roo_Jpa_Entity {
     
-    declare @type: SlotMap: @Entity;
+    declare @type: TimeSlot: @Entity;
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    private Long SlotMap.id;
+    private Long TimeSlot.id;
     
     @Version
     @Column(name = "version")
-    private Integer SlotMap.version;
+    private Integer TimeSlot.version;
     
-    public Long SlotMap.getId() {
+    public Long TimeSlot.getId() {
         return this.id;
     }
     
-    public void SlotMap.setId(Long id) {
+    public void TimeSlot.setId(Long id) {
         this.id = id;
     }
     
-    public Integer SlotMap.getVersion() {
+    public Integer TimeSlot.getVersion() {
         return this.version;
     }
     
-    public void SlotMap.setVersion(Integer version) {
+    public void TimeSlot.setVersion(Integer version) {
         this.version = version;
     }
     

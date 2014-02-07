@@ -14,7 +14,7 @@ privileged aspect Schedule_Roo_Jpa_ActiveRecord {
     @PersistenceContext
     transient EntityManager Schedule.entityManager;
     
-    public static final List<String> Schedule.fieldNames4OrderClauseFilter = java.util.Arrays.asList("slotMap");
+    public static final List<String> Schedule.fieldNames4OrderClauseFilter = java.util.Arrays.asList("timeSlots", "owner");
     
     public static final EntityManager Schedule.entityManager() {
         EntityManager em = new Schedule().entityManager;
