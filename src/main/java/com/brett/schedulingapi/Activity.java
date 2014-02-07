@@ -25,4 +25,9 @@ public class Activity {
      */
     @NotNull
     private Integer duration;
+
+    /**
+     */
+    @ManyToOne
+    private Schedule schedule;
 }

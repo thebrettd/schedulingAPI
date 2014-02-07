@@ -5,6 +5,7 @@ package com.brett.schedulingapi;
 
 import com.brett.schedulingapi.Activity;
 import com.brett.schedulingapi.ActivityDataOnDemand;
+import com.brett.schedulingapi.Schedule;
 import com.brett.schedulingapi.VendorDataOnDemand;
 import java.security.SecureRandom;
 import java.util.ArrayList;
@@ -31,6 +32,7 @@ privileged aspect ActivityDataOnDemand_Roo_DataOnDemand {
         Activity obj = new Activity();
         setDuration(obj, index);
         setName(obj, index);
+        setSchedule(obj, index);
         return obj;
     }
     
@@ -42,6 +44,11 @@ privileged aspect ActivityDataOnDemand_Roo_DataOnDemand {
     public void ActivityDataOnDemand.setName(Activity obj, int index) {
         String name = "name_" + index;
         obj.setName(name);
+    }
+    
+    public void ActivityDataOnDemand.setSchedule(Activity obj, int index) {
+        Schedule schedule = null;
+        obj.setSchedule(schedule);
     }
     
     public Activity ActivityDataOnDemand.getSpecificActivity(int index) {

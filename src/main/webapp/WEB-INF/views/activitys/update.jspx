@@ -6,5 +6,6 @@
         <field:input field="name" id="c_com_brett_schedulingapi_Activity_name" required="true" z="vO6x9jrvBwcjWutK2RcTiM5muLg="/>
         <field:select field="owner" id="c_com_brett_schedulingapi_Activity_owner" itemValue="id" items="${vendors}" path="/vendors" z="P4P8+DK/AToaJl5whIek12fRJtk="/>
         <field:input field="duration" id="c_com_brett_schedulingapi_Activity_duration" required="true" validationMessageCode="field_invalid_integer" z="72QBj9GkO9t5f+le19nwm9ckCqw="/>
+        <field:select field="schedule" id="c_com_brett_schedulingapi_Activity_schedule" itemValue="id" items="${schedules}" path="/schedules" z="GwpGi+PrHc1VipY/a/Yv3T4ebTA="/>
     </form:update>
 </div>

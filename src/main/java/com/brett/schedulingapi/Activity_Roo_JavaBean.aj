@@ -4,6 +4,7 @@
 package com.brett.schedulingapi;
 
 import com.brett.schedulingapi.Activity;
+import com.brett.schedulingapi.Schedule;
 import com.brett.schedulingapi.Vendor;
 
 privileged aspect Activity_Roo_JavaBean {
@@ -30,6 +31,14 @@ privileged aspect Activity_Roo_JavaBean {
     
     public void Activity.setDuration(Integer duration) {
         this.duration = duration;
+    }
+    
+    public Schedule Activity.getSchedule() {
+        return this.schedule;
+    }
+    
+    public void Activity.setSchedule(Schedule schedule) {
+        this.schedule = schedule;
     }
     
 }
