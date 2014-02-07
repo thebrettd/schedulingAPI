@@ -3,6 +3,7 @@
 
 package com.brett.schedulingapi;
 
+import com.brett.schedulingapi.Activity;
 import com.brett.schedulingapi.Vendor;
 import com.brett.schedulingapi.VendorController;
 import java.io.UnsupportedEncodingException;
@@ -86,6 +87,7 @@ privileged aspect VendorController_Roo_Controller {
     
     void VendorController.populateEditForm(Model uiModel, Vendor vendor) {
         uiModel.addAttribute("vendor", vendor);
+        uiModel.addAttribute("activitys", Activity.findAllActivitys());
     }
     
     String VendorController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

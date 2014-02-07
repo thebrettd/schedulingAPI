@@ -4,5 +4,7 @@
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_com_brett_schedulingapi_Activity" object="${activity}" path="/activitys" z="O37i82CbYi+CUclQHd5j6QWNv3Q=">
         <field:display field="name" id="s_com_brett_schedulingapi_Activity_name" object="${activity}" z="yJcsiXMAFkedigodFxO3BdqSgGs="/>
+        <field:display field="owner" id="s_com_brett_schedulingapi_Activity_owner" object="${activity}" z="lors8eAoJAujMIj/EAzBDAs/Iq8="/>
+        <field:display field="duration" id="s_com_brett_schedulingapi_Activity_duration" object="${activity}" z="BRfCG4sVMXwiQzwkM8ost32HTEA="/>
     </page:show>
 </div>

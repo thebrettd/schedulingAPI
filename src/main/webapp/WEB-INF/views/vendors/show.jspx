@@ -4,5 +4,6 @@
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_com_brett_schedulingapi_Vendor" object="${vendor}" path="/vendors" z="Lx+0dwN8PdSRUghAJhAmM9bU+fE=">
         <field:display field="name" id="s_com_brett_schedulingapi_Vendor_name" object="${vendor}" z="ML3nLXjI57ZjgeMlnmiqJ1ukk4E="/>
+        <field:display field="activities" id="s_com_brett_schedulingapi_Vendor_activities" object="${vendor}" z="ZhU/DhxMVk17jPRRtpU6wFtcpHM="/>
     </page:show>
 </div>

@@ -3,7 +3,9 @@
 
 package com.brett.schedulingapi;
 
+import com.brett.schedulingapi.Activity;
 import com.brett.schedulingapi.Vendor;
+import java.util.Set;
 
 privileged aspect Vendor_Roo_JavaBean {
     
@@ -13,6 +15,14 @@ privileged aspect Vendor_Roo_JavaBean {
     
     public void Vendor.setName(String name) {
         this.name = name;
+    }
+    
+    public Set<Activity> Vendor.getActivities() {
+        return this.activities;
+    }
+    
+    public void Vendor.setActivities(Set<Activity> activities) {
+        this.activities = activities;
     }
     
 }

@@ -4,6 +4,8 @@
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_com_brett_schedulingapi_Activity" modelAttribute="activity" path="/activitys" render="${empty dependencies}" z="YgO0dRXxPaxy5NMcgJMAyc/zM8E=">
         <field:input field="name" id="c_com_brett_schedulingapi_Activity_name" required="true" z="vO6x9jrvBwcjWutK2RcTiM5muLg="/>
+        <field:select field="owner" id="c_com_brett_schedulingapi_Activity_owner" itemValue="id" items="${vendors}" path="/vendors" z="P4P8+DK/AToaJl5whIek12fRJtk="/>
+        <field:input field="duration" id="c_com_brett_schedulingapi_Activity_duration" required="true" validationMessageCode="field_invalid_integer" z="72QBj9GkO9t5f+le19nwm9ckCqw="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_brett_schedulingapi_Activity" render="${not empty dependencies}" z="p7USwMsLmF2NQO21F9eMB2ql3uY="/>
 </div>

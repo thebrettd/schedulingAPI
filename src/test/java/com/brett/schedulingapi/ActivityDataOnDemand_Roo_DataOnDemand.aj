@@ -5,6 +5,7 @@ package com.brett.schedulingapi;
 
 import com.brett.schedulingapi.Activity;
 import com.brett.schedulingapi.ActivityDataOnDemand;
+import com.brett.schedulingapi.VendorDataOnDemand;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.Random;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 privileged aspect ActivityDataOnDemand_Roo_DataOnDemand {
@@ -22,10 +24,19 @@ privileged aspect ActivityDataOnDemand_Roo_DataOnDemand {
     
     private List<Activity> ActivityDataOnDemand.data;
     
+    @Autowired
+    VendorDataOnDemand ActivityDataOnDemand.vendorDataOnDemand;
+    
     public Activity ActivityDataOnDemand.getNewTransientActivity(int index) {
         Activity obj = new Activity();
+        setDuration(obj, index);
         setName(obj, index);
         return obj;
+    }
+    
+    public void ActivityDataOnDemand.setDuration(Activity obj, int index) {
+        Integer duration = new Integer(index);
+        obj.setDuration(duration);
     }
     
     public void ActivityDataOnDemand.setName(Activity obj, int index) {

@@ -14,7 +14,7 @@ privileged aspect Vendor_Roo_Jpa_ActiveRecord {
     @PersistenceContext
     transient EntityManager Vendor.entityManager;
     
-    public static final List<String> Vendor.fieldNames4OrderClauseFilter = java.util.Arrays.asList("name");
+    public static final List<String> Vendor.fieldNames4OrderClauseFilter = java.util.Arrays.asList("name", "activities");
     
     public static final EntityManager Vendor.entityManager() {
         EntityManager em = new Vendor().entityManager;

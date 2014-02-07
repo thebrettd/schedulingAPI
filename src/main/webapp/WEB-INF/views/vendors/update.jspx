@@ -4,5 +4,6 @@
     <jsp:output omit-xml-declaration="yes"/>
     <form:update id="fu_com_brett_schedulingapi_Vendor" modelAttribute="vendor" path="/vendors" versionField="Version" z="68Sx71P6chSPG8aLF2qOF6VKIg4=">
         <field:input field="name" id="c_com_brett_schedulingapi_Vendor_name" required="true" z="gm5g/d4GtmzA+0HLatr7+3doKmo="/>
+        <field:select field="activities" id="c_com_brett_schedulingapi_Vendor_activities" itemValue="id" items="${activitys}" multiple="true" path="/activitys" z="EcjIZ3gDvAxT1+nQQlYQY+jit9o="/>
     </form:update>
 </div>

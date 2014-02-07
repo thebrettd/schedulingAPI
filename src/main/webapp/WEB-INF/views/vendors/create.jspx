@@ -4,6 +4,7 @@
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_com_brett_schedulingapi_Vendor" modelAttribute="vendor" path="/vendors" render="${empty dependencies}" z="LPpaeQPxi9kZnt8+3zTAK61zU1Y=">
         <field:input field="name" id="c_com_brett_schedulingapi_Vendor_name" required="true" z="gm5g/d4GtmzA+0HLatr7+3doKmo="/>
+        <field:select field="activities" id="c_com_brett_schedulingapi_Vendor_activities" itemValue="id" items="${activitys}" multiple="true" path="/activitys" z="EcjIZ3gDvAxT1+nQQlYQY+jit9o="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_brett_schedulingapi_Vendor" render="${not empty dependencies}" z="qTU5wcfmbJJp6nIof9ZYX6GH+BM="/>
 </div>

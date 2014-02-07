@@ -17,7 +17,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<Activity, String> ApplicationConversionServiceFactoryBean.getActivityToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.brett.schedulingapi.Activity, java.lang.String>() {
             public String convert(Activity activity) {
-                return new StringBuilder().append(activity.getName()).toString();
+                return new StringBuilder().append(activity.getName()).append(' ').append(activity.getDuration()).toString();
             }
         };
     }

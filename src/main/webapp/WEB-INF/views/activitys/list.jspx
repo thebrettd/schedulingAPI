@@ -5,6 +5,8 @@
     <page:list id="pl_com_brett_schedulingapi_Activity" items="${activitys}" z="GWgkVg+RVsZ9oiJ3M8qFWC9je60=">
         <table:table data="${activitys}" id="l_com_brett_schedulingapi_Activity" path="/activitys" z="9lne9H1a/PI48zYJobxpgGOSfGA=">
             <table:column id="c_com_brett_schedulingapi_Activity_name" property="name" z="JsS6duYBlvVeo+y5HcxxC0F+LC8="/>
+            <table:column id="c_com_brett_schedulingapi_Activity_owner" property="owner" z="kqx8FaeJj7bNSEAFaYHFgClF3LI="/>
+            <table:column id="c_com_brett_schedulingapi_Activity_duration" property="duration" z="JEo2ArRYC9BPHbq+wlMH8H0uzCM="/>
         </table:table>
     </page:list>
 </div>
