@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_brett_schedulingapi_Vendor" items="${vendors}" z="pa2gJ3lR9NwRhAY+jDEShdisIPg=">
+        <table:table data="${vendors}" id="l_com_brett_schedulingapi_Vendor" path="/vendors" z="gauQIp4A7CwnYPSzxd/XziRgFQg=">
+            <table:column id="c_com_brett_schedulingapi_Vendor_name" property="name" z="BOiqM5OtN2FUSEdXdzyTE8dlEmA="/>
+        </table:table>
+    </page:list>
+</div>
