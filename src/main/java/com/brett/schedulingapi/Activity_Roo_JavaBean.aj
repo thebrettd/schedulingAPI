@@ -25,14 +25,6 @@ privileged aspect Activity_Roo_JavaBean {
         this.owner = owner;
     }
     
-    public Integer Activity.getDuration() {
-        return this.duration;
-    }
-    
-    public void Activity.setDuration(Integer duration) {
-        this.duration = duration;
-    }
-    
     public Schedule Activity.getSchedule() {
         return this.schedule;
     }

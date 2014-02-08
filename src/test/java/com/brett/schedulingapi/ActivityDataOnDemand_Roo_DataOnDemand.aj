@@ -30,15 +30,9 @@ privileged aspect ActivityDataOnDemand_Roo_DataOnDemand {
     
     public Activity ActivityDataOnDemand.getNewTransientActivity(int index) {
         Activity obj = new Activity();
-        setDuration(obj, index);
         setName(obj, index);
         setSchedule(obj, index);
         return obj;
-    }
-    
-    public void ActivityDataOnDemand.setDuration(Activity obj, int index) {
-        Integer duration = new Integer(index);
-        obj.setDuration(duration);
     }
     
     public void ActivityDataOnDemand.setName(Activity obj, int index) {

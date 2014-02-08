@@ -30,12 +30,6 @@ public class Activity {
     private Vendor owner;
 
     /**
-     * duration in minutes
-     */
-    @NotNull
-    private Integer duration;
-
-    /**
      */
     @ManyToOne(cascade = CascadeType.ALL)
     private Schedule schedule = new Schedule();
