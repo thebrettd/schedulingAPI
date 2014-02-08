@@ -14,7 +14,7 @@ privileged aspect TimeSlot_Roo_Jpa_ActiveRecord {
     @PersistenceContext
     transient EntityManager TimeSlot.entityManager;
     
-    public static final List<String> TimeSlot.fieldNames4OrderClauseFilter = java.util.Arrays.asList("slotDate", "capacity", "owner", "capacityUsed", "cost");
+    public static final List<String> TimeSlot.fieldNames4OrderClauseFilter = java.util.Arrays.asList("slotDate", "capacity", "capacityUsed", "cost");
     
     public static final EntityManager TimeSlot.entityManager() {
         EntityManager em = new TimeSlot().entityManager;

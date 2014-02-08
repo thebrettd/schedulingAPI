@@ -5,8 +5,6 @@ package com.brett.schedulingapi;
 
 import com.brett.schedulingapi.Activity;
 import com.brett.schedulingapi.ApplicationConversionServiceFactoryBean;
-import com.brett.schedulingapi.Schedule;
-import com.brett.schedulingapi.TimeSlot;
 import com.brett.schedulingapi.Vendor;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.core.convert.converter.Converter;
@@ -17,7 +15,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     declare @type: ApplicationConversionServiceFactoryBean: @Configurable;
     
     public Converter<Activity, String> ApplicationConversionServiceFactoryBean.getActivityToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<com.brett.schedulingapi.Activity, java.lang.String>() {
+        return new Converter<com.brett.schedulingapi.Activity, String>() {
             public String convert(Activity activity) {
                 return new StringBuilder().append(activity.getName()).toString();
             }
@@ -25,71 +23,23 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     }
     
     public Converter<Long, Activity> ApplicationConversionServiceFactoryBean.getIdToActivityConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.brett.schedulingapi.Activity>() {
-            public com.brett.schedulingapi.Activity convert(java.lang.Long id) {
+        return new Converter<Long, com.brett.schedulingapi.Activity>() {
+            public com.brett.schedulingapi.Activity convert(Long id) {
                 return Activity.findActivity(id);
             }
         };
     }
     
     public Converter<String, Activity> ApplicationConversionServiceFactoryBean.getStringToActivityConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.brett.schedulingapi.Activity>() {
+        return new Converter<String, com.brett.schedulingapi.Activity>() {
             public com.brett.schedulingapi.Activity convert(String id) {
                 return getObject().convert(getObject().convert(id, Long.class), Activity.class);
             }
         };
     }
     
-    public Converter<Schedule, String> ApplicationConversionServiceFactoryBean.getScheduleToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<com.brett.schedulingapi.Schedule, java.lang.String>() {
-            public String convert(Schedule schedule) {
-                return "(no displayable fields)";
-            }
-        };
-    }
-    
-    public Converter<Long, Schedule> ApplicationConversionServiceFactoryBean.getIdToScheduleConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.brett.schedulingapi.Schedule>() {
-            public com.brett.schedulingapi.Schedule convert(java.lang.Long id) {
-                return Schedule.findSchedule(id);
-            }
-        };
-    }
-    
-    public Converter<String, Schedule> ApplicationConversionServiceFactoryBean.getStringToScheduleConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.brett.schedulingapi.Schedule>() {
-            public com.brett.schedulingapi.Schedule convert(String id) {
-                return getObject().convert(getObject().convert(id, Long.class), Schedule.class);
-            }
-        };
-    }
-    
-    public Converter<TimeSlot, String> ApplicationConversionServiceFactoryBean.getTimeSlotToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<com.brett.schedulingapi.TimeSlot, java.lang.String>() {
-            public String convert(TimeSlot timeSlot) {
-                return new StringBuilder().append(timeSlot.getSlotDate()).append(' ').append(timeSlot.getCapacity()).append(' ').append(timeSlot.getCapacityUsed()).append(' ').append(timeSlot.getCost()).toString();
-            }
-        };
-    }
-    
-    public Converter<Long, TimeSlot> ApplicationConversionServiceFactoryBean.getIdToTimeSlotConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.brett.schedulingapi.TimeSlot>() {
-            public com.brett.schedulingapi.TimeSlot convert(java.lang.Long id) {
-                return TimeSlot.findTimeSlot(id);
-            }
-        };
-    }
-    
-    public Converter<String, TimeSlot> ApplicationConversionServiceFactoryBean.getStringToTimeSlotConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.brett.schedulingapi.TimeSlot>() {
-            public com.brett.schedulingapi.TimeSlot convert(String id) {
-                return getObject().convert(getObject().convert(id, Long.class), TimeSlot.class);
-            }
-        };
-    }
-    
     public Converter<Vendor, String> ApplicationConversionServiceFactoryBean.getVendorToStringConverter() {
-        return new org.springframework.core.convert.converter.Converter<com.brett.schedulingapi.Vendor, java.lang.String>() {
+        return new Converter<com.brett.schedulingapi.Vendor, String>() {
             public String convert(Vendor vendor) {
                 return new StringBuilder().append(vendor.getName()).toString();
             }
@@ -97,15 +47,15 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     }
     
     public Converter<Long, Vendor> ApplicationConversionServiceFactoryBean.getIdToVendorConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.brett.schedulingapi.Vendor>() {
-            public com.brett.schedulingapi.Vendor convert(java.lang.Long id) {
+        return new Converter<Long, com.brett.schedulingapi.Vendor>() {
+            public com.brett.schedulingapi.Vendor convert(Long id) {
                 return Vendor.findVendor(id);
             }
         };
     }
     
     public Converter<String, Vendor> ApplicationConversionServiceFactoryBean.getStringToVendorConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.brett.schedulingapi.Vendor>() {
+        return new Converter<String, com.brett.schedulingapi.Vendor>() {
             public com.brett.schedulingapi.Vendor convert(String id) {
                 return getObject().convert(getObject().convert(id, Long.class), Vendor.class);
             }
@@ -116,12 +66,6 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         registry.addConverter(getActivityToStringConverter());
         registry.addConverter(getIdToActivityConverter());
         registry.addConverter(getStringToActivityConverter());
-        registry.addConverter(getScheduleToStringConverter());
-        registry.addConverter(getIdToScheduleConverter());
-        registry.addConverter(getStringToScheduleConverter());
-        registry.addConverter(getTimeSlotToStringConverter());
-        registry.addConverter(getIdToTimeSlotConverter());
-        registry.addConverter(getStringToTimeSlotConverter());
         registry.addConverter(getVendorToStringConverter());
         registry.addConverter(getIdToVendorConverter());
         registry.addConverter(getStringToVendorConverter());

@@ -3,7 +3,6 @@
 
 package com.brett.schedulingapi;
 
-import com.brett.schedulingapi.Schedule;
 import com.brett.schedulingapi.TimeSlot;
 import java.util.Calendar;
 
@@ -23,14 +22,6 @@ privileged aspect TimeSlot_Roo_JavaBean {
     
     public void TimeSlot.setCapacity(Integer capacity) {
         this.capacity = capacity;
-    }
-    
-    public Schedule TimeSlot.getOwner() {
-        return this.owner;
-    }
-    
-    public void TimeSlot.setOwner(Schedule owner) {
-        this.owner = owner;
     }
     
     public Integer TimeSlot.getCapacityUsed() {

@@ -3,10 +3,6 @@
 
 package com.brett.schedulingapi;
 
-import com.brett.schedulingapi.Activity;
-import com.brett.schedulingapi.ActivityDataOnDemand;
-import com.brett.schedulingapi.Schedule;
-import com.brett.schedulingapi.VendorDataOnDemand;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -31,18 +27,12 @@ privileged aspect ActivityDataOnDemand_Roo_DataOnDemand {
     public Activity ActivityDataOnDemand.getNewTransientActivity(int index) {
         Activity obj = new Activity();
         setName(obj, index);
-        setSchedule(obj, index);
         return obj;
     }
     
     public void ActivityDataOnDemand.setName(Activity obj, int index) {
         String name = "name_" + index;
         obj.setName(name);
-    }
-    
-    public void ActivityDataOnDemand.setSchedule(Activity obj, int index) {
-        Schedule schedule = null;
-        obj.setSchedule(schedule);
     }
     
     public Activity ActivityDataOnDemand.getSpecificActivity(int index) {

@@ -5,6 +5,6 @@
     <page:show id="ps_com_brett_schedulingapi_Activity" object="${activity}" path="/activitys" z="O37i82CbYi+CUclQHd5j6QWNv3Q=">
         <field:display field="name" id="s_com_brett_schedulingapi_Activity_name" object="${activity}" z="yJcsiXMAFkedigodFxO3BdqSgGs="/>
         <field:display field="owner" id="s_com_brett_schedulingapi_Activity_owner" object="${activity}" z="lors8eAoJAujMIj/EAzBDAs/Iq8="/>
-        <field:display field="schedule" id="s_com_brett_schedulingapi_Activity_schedule" object="${activity}" z="yo+bK6saCRloksCDSFmfwOR0fIM="/>
+        <field:display field="timeSlotMap" id="s_com_brett_schedulingapi_Activity_timeSlotMap" object="${activity}" z="HsnbJ5L7Y0652W4HY93DbxbF2L4=" render="false"/>
     </page:show>
 </div>

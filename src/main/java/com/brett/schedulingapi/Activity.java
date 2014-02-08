@@ -2,8 +2,6 @@ package com.brett.schedulingapi;
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
 import org.springframework.roo.addon.tostring.RooToString;
-
-import javax.persistence.CascadeType;
 import javax.validation.constraints.NotNull;
 import javax.persistence.ManyToOne;
 import java.util.List;
@@ -29,10 +27,7 @@ public class Activity {
     @ManyToOne
     private Vendor owner;
 
-    /**
-     */
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Schedule schedule = new Schedule();
+    private HashMap<Calendar, HashMap<Calendar, TimeSlot>> timeSlotMap = new HashMap<Calendar, HashMap<Calendar, TimeSlot>>();
 
     public List<Calendar> getAvailableDatesInRange(Calendar startDate, Calendar endDate) {
         ArrayList<Calendar> foundDates = new ArrayList<Calendar>();
@@ -52,7 +47,7 @@ public class Activity {
         List<Calendar> availableSlots = new ArrayList<Calendar>();
 
         Calendar notchedDay = notchToDay(day);
-        Map<Calendar, TimeSlot> dayTimeSlots = schedule.getSlotsForDay(notchedDay);
+        Map<Calendar, TimeSlot> dayTimeSlots = getSlotsForDay(notchedDay);
 
         if (dayTimeSlots != null) {
             for (TimeSlot t : dayTimeSlots.values()) {
@@ -93,7 +88,7 @@ public class Activity {
         }
         timeSlots.put(activityDate, t);
 
-        schedule.getTimeSlotMap().put(notchedToDay, timeSlots);
+        timeSlotMap.put(notchedToDay, timeSlots);
     }
 
     private Calendar notchToDay(Calendar activityDate) {
@@ -106,6 +101,13 @@ public class Activity {
     }
 
     private HashMap<Calendar, TimeSlot> getDaysSlots(Calendar notchedToDay) {
-        return schedule.getTimeSlotMap().get(notchedToDay);
+        return timeSlotMap.get(notchedToDay);
     }
+
+    /* Return the map of time slots for a given day. Day is expected to be notched to start of day  */
+    private Map<Calendar, TimeSlot> getSlotsForDay(Calendar day) {
+        return timeSlotMap.get(day);
+    }
+
+
 }

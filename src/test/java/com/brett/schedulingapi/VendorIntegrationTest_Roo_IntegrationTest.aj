@@ -3,9 +3,6 @@
 
 package com.brett.schedulingapi;
 
-import com.brett.schedulingapi.Vendor;
-import com.brett.schedulingapi.VendorDataOnDemand;
-import com.brett.schedulingapi.VendorIntegrationTest;
 import java.util.Iterator;
 import java.util.List;
 import javax.validation.ConstraintViolation;

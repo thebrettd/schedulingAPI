@@ -6,7 +6,6 @@ import java.util.Calendar;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.springframework.format.annotation.DateTimeFormat;
-import javax.persistence.ManyToOne;
 
 @RooJavaBean
 @RooToString
@@ -16,21 +15,16 @@ public class TimeSlot {
     /**
      */
     @Temporal(TemporalType.TIMESTAMP)
-    @DateTimeFormat(style = "F-")
+    @DateTimeFormat(style = "M-")
     private Calendar slotDate;
 
     /**
      */
-    private Integer capacity = 0;
+    private Integer capacity;
 
     /**
      */
-    @ManyToOne
-    private Schedule owner;
-
-    /**
-     */
-    private Integer capacityUsed = 0;
+    private Integer capacityUsed;
 
     /**
      */
@@ -40,6 +34,8 @@ public class TimeSlot {
         this.slotDate = activityDate;
         this.capacity = capacity;
         this.cost = cost;
+        this.capacityUsed = 0;
+
     }
 
     public boolean hasAvailableCapacity() {

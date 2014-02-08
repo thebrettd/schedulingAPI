@@ -28,7 +28,7 @@ public class ActivityController {
         activityDate.setTime(date);
 
         activity.addAvailability(activityDate, Integer.parseInt(availability.getCapacity()), Double.parseDouble(availability.getCost()));
-        activity.merge();
+        activity.persist();
 
         return "Availability added on " + formatter.format(date);
     }

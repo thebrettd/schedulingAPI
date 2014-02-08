@@ -4,8 +4,10 @@
 package com.brett.schedulingapi;
 
 import com.brett.schedulingapi.Activity;
-import com.brett.schedulingapi.Schedule;
+import com.brett.schedulingapi.TimeSlot;
 import com.brett.schedulingapi.Vendor;
+import java.util.Calendar;
+import java.util.HashMap;
 
 privileged aspect Activity_Roo_JavaBean {
     
@@ -25,12 +27,12 @@ privileged aspect Activity_Roo_JavaBean {
         this.owner = owner;
     }
     
-    public Schedule Activity.getSchedule() {
-        return this.schedule;
+    public HashMap<Calendar, HashMap<Calendar, TimeSlot>> Activity.getTimeSlotMap() {
+        return this.timeSlotMap;
     }
     
-    public void Activity.setSchedule(Schedule schedule) {
-        this.schedule = schedule;
+    public void Activity.setTimeSlotMap(HashMap<Calendar, HashMap<Calendar, TimeSlot>> timeSlotMap) {
+        this.timeSlotMap = timeSlotMap;
     }
     
 }

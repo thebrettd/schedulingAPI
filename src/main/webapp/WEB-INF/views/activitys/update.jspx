@@ -5,6 +5,6 @@
     <form:update id="fu_com_brett_schedulingapi_Activity" modelAttribute="activity" path="/activitys" versionField="Version" z="puVLeaNKy/WatmPVSiB2KPsVTHA=">
         <field:input field="name" id="c_com_brett_schedulingapi_Activity_name" required="true" z="vO6x9jrvBwcjWutK2RcTiM5muLg="/>
         <field:select field="owner" id="c_com_brett_schedulingapi_Activity_owner" itemValue="id" items="${vendors}" path="/vendors" z="P4P8+DK/AToaJl5whIek12fRJtk="/>
-        <field:select field="schedule" id="c_com_brett_schedulingapi_Activity_schedule" itemValue="id" items="${schedules}" path="/schedules" z="GwpGi+PrHc1VipY/a/Yv3T4ebTA="/>
+        <field:datetime dateTimePattern="${activity_timeslotmap_date_format}" field="timeSlotMap" id="c_com_brett_schedulingapi_Activity_timeSlotMap" z="cixj6tBIv0Dpg3J68Z9nA+mbv38=" render="false"/>
     </form:update>
 </div>
