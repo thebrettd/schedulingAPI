@@ -5,7 +5,7 @@
     <page:list id="pl_com_brett_schedulingapi_Schedule" items="${schedules}" z="2XQvJsegTuh2lbQ+tzGM2y2+QMw=">
         <table:table data="${schedules}" id="l_com_brett_schedulingapi_Schedule" path="/schedules" z="O3DDUIKwFW87CxpyJ7fuqq0P8yQ=">
             <table:column id="c_com_brett_schedulingapi_Schedule_owner" property="owner" z="4HA+fjxflavyTZ6gNuK3cSpAMFM="/>
-            <table:column id="c_com_brett_schedulingapi_Schedule_timeSlotMap" property="timeSlotMap" z="OldS59UTmsTuDYEGidK7op2k4Ss="/>
+            <!--table:column id="c_com_brett_schedulingapi_Schedule_timeSlotMap" property="timeSlotMap" z="OldS59UTmsTuDYEGidK7op2k4Ss="/-->
         </table:table>
     </page:list>
 </div>

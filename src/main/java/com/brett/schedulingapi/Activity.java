@@ -74,7 +74,13 @@ public class Activity {
         }
 
         TimeSlot t = timeSlots.get(time);
-        t.bookTimeSlot();
+
+        if(t.hasAvailableCapacity()){
+            t.bookTimeSlot();
+        }else{
+            throw new IllegalStateException("Time slot has no capacity");
+        }
+
 
     }
 
