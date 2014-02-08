@@ -23,7 +23,7 @@ public class Schedule {
 
     /**
      */
-    private Map<Calendar, Map<Calendar, TimeSlot>> timeSlotMap = new HashMap<Calendar, Map<Calendar, TimeSlot>>();
+    private HashMap<Calendar, HashMap<Calendar, TimeSlot>> timeSlotMap = new HashMap<Calendar, HashMap<Calendar, TimeSlot>>();
 
     /* Return the map of time slots for a given day. Day is expected to be notched to start of day  */
     public Map<Calendar, TimeSlot> getSlotsForDay(Calendar day) {

@@ -87,7 +87,7 @@ public class Activity {
         TimeSlot t = new TimeSlot(activityDate, capacity, cost);
 
         Calendar notchedToDay = notchToDay(activityDate);
-        Map<Calendar, TimeSlot> timeSlots = getDaysSlots(notchedToDay);
+        HashMap<Calendar, TimeSlot> timeSlots = getDaysSlots(notchedToDay);
 
         if (timeSlots == null) {
             timeSlots = new HashMap<Calendar, TimeSlot>();
@@ -106,7 +106,7 @@ public class Activity {
         return notchedToDay;
     }
 
-    private Map<Calendar, TimeSlot> getDaysSlots(Calendar notchedToDay) {
+    private HashMap<Calendar, TimeSlot> getDaysSlots(Calendar notchedToDay) {
         return schedule.getTimeSlotMap().get(notchedToDay);
     }
 }

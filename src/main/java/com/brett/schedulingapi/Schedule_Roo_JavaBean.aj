@@ -7,7 +7,7 @@ import com.brett.schedulingapi.Activity;
 import com.brett.schedulingapi.Schedule;
 import com.brett.schedulingapi.TimeSlot;
 import java.util.Calendar;
-import java.util.Map;
+import java.util.HashMap;
 
 privileged aspect Schedule_Roo_JavaBean {
     
@@ -19,11 +19,11 @@ privileged aspect Schedule_Roo_JavaBean {
         this.owner = owner;
     }
     
-    public Map<Calendar, Map<Calendar, TimeSlot>> Schedule.getTimeSlotMap() {
+    public HashMap<Calendar, HashMap<Calendar, TimeSlot>> Schedule.getTimeSlotMap() {
         return this.timeSlotMap;
     }
     
-    public void Schedule.setTimeSlotMap(Map<Calendar, Map<Calendar, TimeSlot>> timeSlotMap) {
+    public void Schedule.setTimeSlotMap(HashMap<Calendar, HashMap<Calendar, TimeSlot>> timeSlotMap) {
         this.timeSlotMap = timeSlotMap;
     }
     
