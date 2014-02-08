@@ -21,7 +21,7 @@ public class TimeSlot {
 
     /**
      */
-    private Integer capacity;
+    private Integer capacity = 0;
 
     /**
      */
@@ -30,5 +30,23 @@ public class TimeSlot {
 
     /**
      */
-    private Integer capacityUsed;
+    private Integer capacityUsed = 0;
+
+    /**
+     */
+    private Double cost;
+
+    public TimeSlot(Calendar activityDate, Integer capacity, Double cost) {
+        this.slotDate = activityDate;
+        this.capacity = capacity;
+        this.cost = cost;
+    }
+
+    public boolean hasAvailableCapacity() {
+        return capacity > capacityUsed;
+    }
+
+    public void bookTimeSlot() {
+        capacityUsed += 1;
+    }
 }

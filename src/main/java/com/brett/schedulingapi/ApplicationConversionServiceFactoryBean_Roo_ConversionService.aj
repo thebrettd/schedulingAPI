@@ -67,7 +67,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<TimeSlot, String> ApplicationConversionServiceFactoryBean.getTimeSlotToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.brett.schedulingapi.TimeSlot, java.lang.String>() {
             public String convert(TimeSlot timeSlot) {
-                return new StringBuilder().append(timeSlot.getSlotDate()).append(' ').append(timeSlot.getCapacity()).append(' ').append(timeSlot.getCapacityUsed()).toString();
+                return new StringBuilder().append(timeSlot.getSlotDate()).append(' ').append(timeSlot.getCapacity()).append(' ').append(timeSlot.getCapacityUsed()).append(' ').append(timeSlot.getCost()).toString();
             }
         };
     }

@@ -41,4 +41,12 @@ privileged aspect TimeSlot_Roo_JavaBean {
         this.capacityUsed = capacityUsed;
     }
     
+    public Double TimeSlot.getCost() {
+        return this.cost;
+    }
+    
+    public void TimeSlot.setCost(Double cost) {
+        this.cost = cost;
+    }
+    
 }

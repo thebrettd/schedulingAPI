@@ -24,6 +24,10 @@ privileged aspect TimeSlot_Roo_Jpa_Entity {
     @Column(name = "version")
     private Integer TimeSlot.version;
     
+    public TimeSlot.new() {
+        super();
+    }
+
     public Long TimeSlot.getId() {
         return this.id;
     }

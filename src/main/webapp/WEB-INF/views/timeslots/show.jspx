@@ -7,5 +7,6 @@
         <field:display field="capacity" id="s_com_brett_schedulingapi_TimeSlot_capacity" object="${timeslot}" z="l7gDEQMpkdi5CyRBx/opYyXVWiE="/>
         <field:display field="owner" id="s_com_brett_schedulingapi_TimeSlot_owner" object="${timeslot}" z="ZJw9eDf9gobl9iUpAbxYaY6T6LY="/>
         <field:display field="capacityUsed" id="s_com_brett_schedulingapi_TimeSlot_capacityUsed" object="${timeslot}" z="u+/FHEvLAWlpvAxge8BuE9jw3Ug="/>
+        <field:display field="cost" id="s_com_brett_schedulingapi_TimeSlot_cost" object="${timeslot}" z="f8WvLuLileA3UxARwec1g524IzA="/>
     </page:show>
 </div>

@@ -3,8 +3,8 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_com_brett_schedulingapi_Schedule" modelAttribute="schedule" path="/schedules" render="${empty dependencies}" z="azxG4mLD2TxWhWW2i4+oETtj+qk=">
-        <field:select field="timeSlots" id="c_com_brett_schedulingapi_Schedule_timeSlots" itemValue="id" items="${timeslots}" multiple="true" path="/timeslots" z="3ZvJFGH82Sxbqqbv+FkOf4FMY3s="/>
         <field:select field="owner" id="c_com_brett_schedulingapi_Schedule_owner" itemValue="id" items="${activitys}" path="/activitys" z="RWc3mXm23BGbrJYFYYw7PIuv/pI="/>
+        <field:datetime dateTimePattern="${schedule_timeslotmap_date_format}" field="timeSlotMap" id="c_com_brett_schedulingapi_Schedule_timeSlotMap" z="5TaW5PmnLy2z9fx6E3uwVpZmzXo="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_brett_schedulingapi_Schedule" render="${not empty dependencies}" z="FPvz/iqt60THIGtgFf5JmfpmfUA="/>
 </div>

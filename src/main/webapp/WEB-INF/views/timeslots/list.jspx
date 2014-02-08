@@ -8,6 +8,7 @@
             <table:column id="c_com_brett_schedulingapi_TimeSlot_capacity" property="capacity" z="plvEj6+3/QCOwoVEO2KjB0aw7Hc="/>
             <table:column id="c_com_brett_schedulingapi_TimeSlot_owner" property="owner" z="M1A34l21ZmNuxbrZjk2DB6f1nTg="/>
             <table:column id="c_com_brett_schedulingapi_TimeSlot_capacityUsed" property="capacityUsed" z="+WiEaKDABqCGkau5vDX+twMk0rs="/>
+            <table:column id="c_com_brett_schedulingapi_TimeSlot_cost" property="cost" z="N9wnQRa6b6tBSAPK26QbbVmJNug="/>
         </table:table>
     </page:list>
 </div>

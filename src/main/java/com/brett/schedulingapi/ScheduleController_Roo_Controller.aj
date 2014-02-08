@@ -6,7 +6,6 @@ package com.brett.schedulingapi;
 import com.brett.schedulingapi.Activity;
 import com.brett.schedulingapi.Schedule;
 import com.brett.schedulingapi.ScheduleController;
-import com.brett.schedulingapi.TimeSlot;
 import java.io.UnsupportedEncodingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -89,7 +88,6 @@ privileged aspect ScheduleController_Roo_Controller {
     void ScheduleController.populateEditForm(Model uiModel, Schedule schedule) {
         uiModel.addAttribute("schedule", schedule);
         uiModel.addAttribute("activitys", Activity.findAllActivitys());
-        uiModel.addAttribute("timeslots", TimeSlot.findAllTimeSlots());
     }
     
     String ScheduleController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

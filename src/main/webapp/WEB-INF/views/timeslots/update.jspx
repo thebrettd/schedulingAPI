@@ -7,5 +7,6 @@
         <field:input field="capacity" id="c_com_brett_schedulingapi_TimeSlot_capacity" validationMessageCode="field_invalid_integer" z="P9uZRIvRTGExMm3MreZh/If99lY="/>
         <field:select field="owner" id="c_com_brett_schedulingapi_TimeSlot_owner" itemValue="id" items="${schedules}" path="/schedules" z="ccVms6FrTUZm2SiOg/Di1DliniI="/>
         <field:input field="capacityUsed" id="c_com_brett_schedulingapi_TimeSlot_capacityUsed" validationMessageCode="field_invalid_integer" z="Z2it4sR11Qv3sIqpLyMDPTUQKaI="/>
+        <field:input field="cost" id="c_com_brett_schedulingapi_TimeSlot_cost" validationMessageCode="field_invalid_number" z="/9Bq0oKgD44LIVH3l06XGF03je4="/>
     </form:update>
 </div>

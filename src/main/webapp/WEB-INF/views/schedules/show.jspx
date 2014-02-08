@@ -3,7 +3,7 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_com_brett_schedulingapi_Schedule" object="${schedule}" path="/schedules" z="tzZBMe0ltV6/5zPG+2OoQasXwkk=">
-        <field:display field="timeSlots" id="s_com_brett_schedulingapi_Schedule_timeSlots" object="${schedule}" z="h6jkEw5J/l0N4609KgZxA+Fi8QU="/>
         <field:display field="owner" id="s_com_brett_schedulingapi_Schedule_owner" object="${schedule}" z="g+0XKoVjWxkOes7B57PNZrvNPNI="/>
+        <field:display field="timeSlotMap" id="s_com_brett_schedulingapi_Schedule_timeSlotMap" object="${schedule}" z="jp5Nsw+IvopcPYmgo1yBclEsNxY="/>
     </page:show>
 </div>
