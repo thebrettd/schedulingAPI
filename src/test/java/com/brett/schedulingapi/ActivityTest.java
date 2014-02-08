@@ -18,16 +18,15 @@ public class ActivityTest {
     @Before
     public void testSetup(){
         myActivity = new Activity();
-
     }
 
     @Test
-    public void testGetAvailableDatesInRangeEmptySchedule() throws Exception {
-        Calendar startDate = new GregorianCalendar();
-        Calendar endDate = new GregorianCalendar();
-        List<Calendar> foundDates = myActivity.getAvailableDatesInRange(startDate, endDate);
-        assertTrue(foundDates.size() == 0);
+    public void testGetAvailableSlotsInDay() throws Exception {
+        Calendar activityDate = new GregorianCalendar();
+        myActivity.addAvailability(activityDate, 5, 50.00);
+        assertTrue(myActivity.getAvailableSlotsInDay(activityDate).size() == 1);
     }
+
     @Test
     public void testAddAvailability(){
         Calendar activityDate = new GregorianCalendar();
@@ -35,21 +34,14 @@ public class ActivityTest {
         assertTrue(myActivity.getAvailableSlotsInDay(activityDate).size() == 1);
 
         Calendar activityDate2 = new GregorianCalendar();
-        activityDate2.add(Calendar.MINUTE, 1); //Ensure
+        activityDate2.add(Calendar.MINUTE, 1); //Ensure dates are not the same
         myActivity.addAvailability(activityDate2, 5, 55.00);
         assertTrue(myActivity.getAvailableSlotsInDay(activityDate).size() == 2);
 
         Calendar activityDate3 = new GregorianCalendar();
-        activityDate3.add(Calendar.DAY_OF_WEEK,1);
+        activityDate3.add(Calendar.DAY_OF_YEAR,1);
         myActivity.addAvailability(activityDate3, 5, 55.00);
         assertTrue(myActivity.getAvailableSlotsInDay(activityDate).size() == 2);
-    }
-
-    @Test
-    public void testGetAvailableHoursInDay() throws Exception {
-        Calendar activityDate = new GregorianCalendar();
-        myActivity.addAvailability(activityDate, 5, 50.00);
-        assertTrue(myActivity.getAvailableSlotsInDay(activityDate).size() == 1);
     }
 
     @Test
@@ -62,4 +54,34 @@ public class ActivityTest {
         assertTrue(myActivity.getAvailableSlotsInDay(activityDate).size() == 0);
 
     }
+
+    @Test
+    public void testGetAvailableDatesInRangeEmptySchedule() throws Exception {
+        Calendar startDate = new GregorianCalendar();
+        Calendar endDate = new GregorianCalendar();
+        List<Calendar> foundDates = myActivity.getAvailableDatesInRange(startDate, endDate);
+        assertTrue(foundDates.size() == 0);
+    }
+
+    @Test
+    public void testGetAvailableDatesInRange() throws Exception {
+        Calendar startDate = new GregorianCalendar();
+        Calendar endDate = new GregorianCalendar();
+        endDate.add(Calendar.DAY_OF_YEAR, 7);
+
+        Calendar activityDate = new GregorianCalendar();
+        myActivity.addAvailability(activityDate, 5, 50.00);
+
+        Calendar activityDate2 = new GregorianCalendar();
+        activityDate2.add(Calendar.DAY_OF_YEAR, 1);
+        myActivity.addAvailability(activityDate2, 5, 50.00);
+
+        Calendar activityDate3 = new GregorianCalendar();
+        activityDate3.add(Calendar.DAY_OF_YEAR, 2);
+        myActivity.addAvailability(activityDate3, 5, 50.00);
+
+        List<Calendar> foundDates = myActivity.getAvailableDatesInRange(startDate, endDate);
+        assertTrue(foundDates.size() == 3);
+    }
+
 }
