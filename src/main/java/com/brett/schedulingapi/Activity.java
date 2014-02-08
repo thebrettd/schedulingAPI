@@ -80,8 +80,6 @@ public class Activity {
         }else{
             throw new IllegalStateException("Time slot has no capacity");
         }
-
-
     }
 
     public void addAvailability(Calendar activityDate, Integer capacity, Double cost) {

@@ -90,7 +90,7 @@ privileged aspect TimeSlotController_Roo_Controller {
     }
     
     void TimeSlotController.addDateTimeFormatPatterns(Model uiModel) {
-        uiModel.addAttribute("timeSlot_slotdate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("timeSlot_slotdate_date_format", DateTimeFormat.patternForStyle("F-", LocaleContextHolder.getLocale()));
     }
     
     void TimeSlotController.populateEditForm(Model uiModel, TimeSlot timeSlot) {

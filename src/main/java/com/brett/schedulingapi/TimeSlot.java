@@ -16,7 +16,7 @@ public class TimeSlot {
     /**
      */
     @Temporal(TemporalType.TIMESTAMP)
-    @DateTimeFormat(style = "M-")
+    @DateTimeFormat(style = "F-")
     private Calendar slotDate;
 
     /**

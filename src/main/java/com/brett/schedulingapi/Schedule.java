@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import javax.persistence.CascadeType;
 import javax.persistence.ManyToOne;
 
 @RooJavaBean
@@ -18,7 +19,7 @@ public class Schedule {
 
     /**
      */
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Activity owner;
 
     /**
