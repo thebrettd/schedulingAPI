@@ -51,7 +51,12 @@ public class ActivityController {
         Date date = formatter.parse(booking.getDate());
         activityDate.setTime(date);
 
-        activity.bookActivity(activityDate);
+        try{
+            activity.bookActivity(activityDate);
+        }catch(IllegalStateException e){
+            return e.getMessage();
+        }
+
         activity.merge();
 
         return "Activity booked on " + formatter.format(date);
@@ -101,9 +106,9 @@ public class ActivityController {
 
         List<Calendar> availableTimesInDay = activity.getAvailableSlotsInDay(singleDate);
 
-        StringBuilder response = new StringBuilder();
+        StringBuilder response = new StringBuilder().append("\n");
         for(Calendar availableDate : availableTimesInDay){
-            response.append(availableDate.toString()).append(",").append("\n");
+            response.append(availableDate.getTime().toString()).append("\n");
         }
 
         return "Found " + availableTimesInDay.size() + " slots: " + response.toString();

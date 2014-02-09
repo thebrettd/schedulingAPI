@@ -4,11 +4,12 @@
     <jsp:output omit-xml-declaration="yes"/>
     <page:list id="pl_com_brett_schedulingapi_TimeSlot" items="${timeslots}" z="bMnFqT4c6ng8FZHm+lvMs8z2FBo=">
         <table:table data="${timeslots}" id="l_com_brett_schedulingapi_TimeSlot" path="/timeslots" z="a8WWWkHTzA6okumEayOyhGB6vrE=">
-            <table:column calendar="true" dateTimePattern="${timeSlot_slotdate_date_format}" id="c_com_brett_schedulingapi_TimeSlot_slotDate" property="slotDate" z="9NVnWL5iRd+I9YWbcRct8LCaV0A="/>
+            <table:column calendar="true" dateTimePattern="${timeSlot_activitytime_date_format}" id="c_com_brett_schedulingapi_TimeSlot_activityTime" property="activityTime" z="VjpylkCddlTmYRpWdCyHkHwSvLw="/>
             <table:column id="c_com_brett_schedulingapi_TimeSlot_capacity" property="capacity" z="plvEj6+3/QCOwoVEO2KjB0aw7Hc="/>
-            <table:column id="c_com_brett_schedulingapi_TimeSlot_owner" property="owner" z="M1A34l21ZmNuxbrZjk2DB6f1nTg="/>
-            <table:column id="c_com_brett_schedulingapi_TimeSlot_capacityUsed" property="capacityUsed" z="+WiEaKDABqCGkau5vDX+twMk0rs="/>
-            <table:column id="c_com_brett_schedulingapi_TimeSlot_cost" property="cost" z="N9wnQRa6b6tBSAPK26QbbVmJNug="/>
+            <table:column id="c_com_brett_schedulingapi_TimeSlot_usedCapacity" property="usedCapacity" z="fJRelMSW7/tcSFcJim9eWKgA2pY="/>
+            <table:column id="c_com_brett_schedulingapi_TimeSlot_activity" property="activity" z="fnNDU1Jy5idKib7vRSm0MkC/iKM="/>
+            <table:column id="c_com_brett_schedulingapi_TimeSlot_price" property="price" z="7u9HhKMOZYdITLy/T8AEG6if6iQ="/>
+            <table:column id="c_com_brett_schedulingapi_TimeSlot_hasCapacity" property="hasCapacity" z="WZPq1Jvn3azE9n8C6tfJy089krc="/>
         </table:table>
     </page:list>
 </div>

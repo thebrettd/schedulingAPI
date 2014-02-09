@@ -3,6 +3,9 @@
 
 package com.brett.schedulingapi;
 
+import com.brett.schedulingapi.Activity;
+import com.brett.schedulingapi.ActivityDataOnDemand;
+import com.brett.schedulingapi.ActivityIntegrationTest;
 import java.util.Iterator;
 import java.util.List;
 import javax.validation.ConstraintViolation;

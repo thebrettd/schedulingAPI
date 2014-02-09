@@ -3,10 +3,11 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:update id="fu_com_brett_schedulingapi_TimeSlot" modelAttribute="timeSlot" path="/timeslots" versionField="Version" z="tnrtMQVv7/CjKIVaSsPKI7MH3p0=">
-        <field:datetime dateTimePattern="${timeSlot_slotdate_date_format}" field="slotDate" id="c_com_brett_schedulingapi_TimeSlot_slotDate" z="B0dfUJPd4vqZCF2ZUXOdKfP9UbA="/>
+        <field:datetime dateTimePattern="${timeSlot_activitytime_date_format}" field="activityTime" id="c_com_brett_schedulingapi_TimeSlot_activityTime" z="8LR+NmFapwq10qukFtjA63t+5uA="/>
         <field:input field="capacity" id="c_com_brett_schedulingapi_TimeSlot_capacity" validationMessageCode="field_invalid_integer" z="P9uZRIvRTGExMm3MreZh/If99lY="/>
-        <field:select field="owner" id="c_com_brett_schedulingapi_TimeSlot_owner" itemValue="id" items="${schedules}" path="/schedules" z="ccVms6FrTUZm2SiOg/Di1DliniI="/>
-        <field:input field="capacityUsed" id="c_com_brett_schedulingapi_TimeSlot_capacityUsed" validationMessageCode="field_invalid_integer" z="Z2it4sR11Qv3sIqpLyMDPTUQKaI="/>
-        <field:input field="cost" id="c_com_brett_schedulingapi_TimeSlot_cost" validationMessageCode="field_invalid_number" z="/9Bq0oKgD44LIVH3l06XGF03je4="/>
+        <field:input field="usedCapacity" id="c_com_brett_schedulingapi_TimeSlot_usedCapacity" validationMessageCode="field_invalid_integer" z="4NYddGmr5P4v1KYx94sB4baUcBM="/>
+        <field:select field="activity" id="c_com_brett_schedulingapi_TimeSlot_activity" itemValue="id" items="${activitys}" path="/activitys" z="Eg+pta7JZbJwB0L0U61sBHU4wOk="/>
+        <field:input field="price" id="c_com_brett_schedulingapi_TimeSlot_price" validationMessageCode="field_invalid_number" z="v5OmeVi0Eul/Ly77xeWdQx7yTiQ="/>
+        <field:checkbox field="hasCapacity" id="c_com_brett_schedulingapi_TimeSlot_hasCapacity" z="CghPYKSQf4Q+zRZgyluhqlCxDJ4="/>
     </form:update>
 </div>

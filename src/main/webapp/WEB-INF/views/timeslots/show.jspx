@@ -3,10 +3,11 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_com_brett_schedulingapi_TimeSlot" object="${timeslot}" path="/timeslots" z="nAJIQBHz+TiKrIKQDN37FS+sGWg=">
-        <field:display calendar="true" dateTimePattern="${timeSlot_slotdate_date_format}" field="slotDate" id="s_com_brett_schedulingapi_TimeSlot_slotDate" object="${timeslot}" z="N9s4YA+8OqudqSiDTe7ENAEiF2E="/>
+        <field:display calendar="true" dateTimePattern="${timeSlot_activitytime_date_format}" field="activityTime" id="s_com_brett_schedulingapi_TimeSlot_activityTime" object="${timeslot}" z="zvrSFIeO+XJHnPhMSBPtOzuIxAc="/>
         <field:display field="capacity" id="s_com_brett_schedulingapi_TimeSlot_capacity" object="${timeslot}" z="l7gDEQMpkdi5CyRBx/opYyXVWiE="/>
-        <field:display field="owner" id="s_com_brett_schedulingapi_TimeSlot_owner" object="${timeslot}" z="ZJw9eDf9gobl9iUpAbxYaY6T6LY="/>
-        <field:display field="capacityUsed" id="s_com_brett_schedulingapi_TimeSlot_capacityUsed" object="${timeslot}" z="u+/FHEvLAWlpvAxge8BuE9jw3Ug="/>
-        <field:display field="cost" id="s_com_brett_schedulingapi_TimeSlot_cost" object="${timeslot}" z="f8WvLuLileA3UxARwec1g524IzA="/>
+        <field:display field="usedCapacity" id="s_com_brett_schedulingapi_TimeSlot_usedCapacity" object="${timeslot}" z="VemqI2EyCQ/5OEJE4yjaBv6f8C0="/>
+        <field:display field="activity" id="s_com_brett_schedulingapi_TimeSlot_activity" object="${timeslot}" z="jin5e+43zWL+QBSntINg9Yx5Dmo="/>
+        <field:display field="price" id="s_com_brett_schedulingapi_TimeSlot_price" object="${timeslot}" z="/eynaQKSEBYrM/pGfY5j/r7Mq0A="/>
+        <field:display field="hasCapacity" id="s_com_brett_schedulingapi_TimeSlot_hasCapacity" object="${timeslot}" z="RKgULuddcNUuIJD5Q1L0WboRYHM="/>
     </page:show>
 </div>

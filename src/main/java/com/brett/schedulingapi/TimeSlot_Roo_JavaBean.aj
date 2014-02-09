@@ -3,17 +3,18 @@
 
 package com.brett.schedulingapi;
 
+import com.brett.schedulingapi.Activity;
 import com.brett.schedulingapi.TimeSlot;
 import java.util.Calendar;
 
 privileged aspect TimeSlot_Roo_JavaBean {
     
-    public Calendar TimeSlot.getSlotDate() {
-        return this.slotDate;
+    public Calendar TimeSlot.getActivityTime() {
+        return this.activityTime;
     }
     
-    public void TimeSlot.setSlotDate(Calendar slotDate) {
-        this.slotDate = slotDate;
+    public void TimeSlot.setActivityTime(Calendar activityTime) {
+        this.activityTime = activityTime;
     }
     
     public Integer TimeSlot.getCapacity() {
@@ -24,20 +25,36 @@ privileged aspect TimeSlot_Roo_JavaBean {
         this.capacity = capacity;
     }
     
-    public Integer TimeSlot.getCapacityUsed() {
-        return this.capacityUsed;
+    public Integer TimeSlot.getUsedCapacity() {
+        return this.usedCapacity;
     }
     
-    public void TimeSlot.setCapacityUsed(Integer capacityUsed) {
-        this.capacityUsed = capacityUsed;
+    public void TimeSlot.setUsedCapacity(Integer usedCapacity) {
+        this.usedCapacity = usedCapacity;
     }
     
-    public Double TimeSlot.getCost() {
-        return this.cost;
+    public Double TimeSlot.getPrice() {
+        return this.price;
     }
     
-    public void TimeSlot.setCost(Double cost) {
-        this.cost = cost;
+    public void TimeSlot.setPrice(Double price) {
+        this.price = price;
+    }
+    
+    public Boolean TimeSlot.getHasCapacity() {
+        return this.hasCapacity;
+    }
+    
+    public void TimeSlot.setHasCapacity(Boolean hasCapacity) {
+        this.hasCapacity = hasCapacity;
+    }
+    
+    public Activity TimeSlot.getActivity() {
+        return this.activity;
+    }
+    
+    public void TimeSlot.setActivity(Activity activity) {
+        this.activity = activity;
     }
     
 }

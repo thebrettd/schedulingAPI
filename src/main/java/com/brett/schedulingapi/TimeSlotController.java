@@ -3,11 +3,8 @@ import org.springframework.roo.addon.web.mvc.controller.scaffold.RooWebScaffold;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@RequestMapping("/vendors")
+@RequestMapping("/timeslots")
 @Controller
-@RooWebScaffold(path = "vendors", formBackingObject = Vendor.class)
-public class VendorController {
-
-
-
+@RooWebScaffold(path = "timeslots", formBackingObject = TimeSlot.class)
+public class TimeSlotController {
 }

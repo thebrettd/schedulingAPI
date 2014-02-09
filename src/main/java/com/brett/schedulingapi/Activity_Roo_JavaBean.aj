@@ -5,9 +5,7 @@ package com.brett.schedulingapi;
 
 import com.brett.schedulingapi.Activity;
 import com.brett.schedulingapi.TimeSlot;
-import com.brett.schedulingapi.Vendor;
-import java.util.Calendar;
-import java.util.HashMap;
+import java.util.Set;
 
 privileged aspect Activity_Roo_JavaBean {
     
@@ -19,20 +17,20 @@ privileged aspect Activity_Roo_JavaBean {
         this.name = name;
     }
     
-    public Vendor Activity.getOwner() {
-        return this.owner;
+    public String Activity.getDescription() {
+        return this.description;
     }
     
-    public void Activity.setOwner(Vendor owner) {
-        this.owner = owner;
+    public void Activity.setDescription(String description) {
+        this.description = description;
     }
     
-    public HashMap<Calendar, HashMap<Calendar, TimeSlot>> Activity.getTimeSlotMap() {
-        return this.timeSlotMap;
+    public Set<TimeSlot> Activity.getTimeSlots() {
+        return this.timeSlots;
     }
     
-    public void Activity.setTimeSlotMap(HashMap<Calendar, HashMap<Calendar, TimeSlot>> timeSlotMap) {
-        this.timeSlotMap = timeSlotMap;
+    public void Activity.setTimeSlots(Set<TimeSlot> timeSlots) {
+        this.timeSlots = timeSlots;
     }
     
 }

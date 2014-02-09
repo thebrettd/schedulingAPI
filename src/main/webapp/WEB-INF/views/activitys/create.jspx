@@ -4,8 +4,8 @@
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_com_brett_schedulingapi_Activity" modelAttribute="activity" path="/activitys" render="${empty dependencies}" z="YgO0dRXxPaxy5NMcgJMAyc/zM8E=">
         <field:input field="name" id="c_com_brett_schedulingapi_Activity_name" required="true" z="vO6x9jrvBwcjWutK2RcTiM5muLg="/>
-        <field:select field="owner" id="c_com_brett_schedulingapi_Activity_owner" itemValue="id" items="${vendors}" path="/vendors" z="P4P8+DK/AToaJl5whIek12fRJtk="/>
-        <field:datetime dateTimePattern="${activity_timeslotmap_date_format}" field="timeSlotMap" id="c_com_brett_schedulingapi_Activity_timeSlotMap" z="cixj6tBIv0Dpg3J68Z9nA+mbv38=" render="false"/>
+        <field:input field="description" id="c_com_brett_schedulingapi_Activity_description" z="oRikhZQ7ZCEm5zv567i1YCjtauk="/>
+        <field:select field="timeSlots" id="c_com_brett_schedulingapi_Activity_timeSlots" itemValue="id" items="${timeslots}" multiple="true" path="/timeslots" z="KITirIdh1Zd/UdgQlnAMyEpAWHQ="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_brett_schedulingapi_Activity" render="${not empty dependencies}" z="p7USwMsLmF2NQO21F9eMB2ql3uY="/>
 </div>

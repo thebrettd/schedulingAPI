@@ -3,14 +3,18 @@ import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
 import org.springframework.roo.addon.tostring.RooToString;
 import javax.validation.constraints.NotNull;
-import javax.persistence.ManyToOne;
+import javax.persistence.CascadeType;
+import javax.persistence.ManyToMany;
+
 import java.util.List;
 import java.util.ArrayList;
-
-import java.util.Calendar;
+import java.util.Set;
+import java.util.HashSet;
 
 import java.util.Map;
 import java.util.HashMap;
+
+import java.util.Calendar;
 
 @RooJavaBean
 @RooToString
@@ -24,74 +28,66 @@ public class Activity {
 
     /**
      */
-    @ManyToOne
-    private Vendor owner;
+    private String description;
 
-    private HashMap<Calendar, HashMap<Calendar, TimeSlot>> timeSlotMap = new HashMap<Calendar, HashMap<Calendar, TimeSlot>>();
+    /**
+     */
+    @ManyToMany(cascade = CascadeType.ALL)
+    private Set<TimeSlot> timeSlots = new HashSet<TimeSlot>();
 
-    public List<Calendar> getAvailableDatesInRange(Calendar startDate, Calendar endDate) {
-        ArrayList<Calendar> foundDates = new ArrayList<Calendar>();
-
-        while (!startDate.after(endDate)) {
-
-            List<Calendar> availableSlotsInDay = getAvailableSlotsInDay(startDate);
-            if (availableSlotsInDay.size() >= 1) {
-                foundDates.add(startDate);
-            }
-            startDate.add(Calendar.DATE, 1);
-        }
-        return foundDates;
+    public void addAvailability(Calendar activityDate, int capacity, double price) {
+        TimeSlot t = new TimeSlot(activityDate, capacity, price);
+        timeSlots.add(t);
     }
 
-    public List<Calendar> getAvailableSlotsInDay(Calendar day) {
-        List<Calendar> availableSlots = new ArrayList<Calendar>();
+    public void bookActivity(Calendar activityDate) {
+        //find the timeslot corresponding to this activityDate
+        TimeSlot t = TimeSlot.findTimeSlotsByActivityTimeEquals(activityDate).getSingleResult();
 
-        Calendar notchedDay = notchToDay(day);
-        Map<Calendar, TimeSlot> dayTimeSlots = getSlotsForDay(notchedDay);
-
-        if (dayTimeSlots != null) {
-            for (TimeSlot t : dayTimeSlots.values()) {
-                if (t.hasAvailableCapacity()) {
-                    availableSlots.add(t.getSlotDate());
-                }
+        //update the capacity
+        if (!t.getHasCapacity()){
+            throw new IllegalStateException("Attempted to book activity on invalid time slot");
+        }else{
+            t.setUsedCapacity(t.getUsedCapacity() + 1);
+            if(t.getCapacity().equals(t.getUsedCapacity())){
+                t.setHasCapacity(Boolean.FALSE);
             }
         }
+    }
 
+    public List<Calendar> getAvailableDatesInRange(Calendar startDate, Calendar endDate) {
+        List<TimeSlot> resultList = TimeSlot.findTimeSlotsByHasCapacityEqualsAndActivityTimeBetween(Boolean.TRUE, startDate, endDate).getResultList();
+
+        //Notch everything to the day and add it to the map
+        Map<Calendar, TimeSlot> foundDaysMap = new HashMap<Calendar, TimeSlot>();
+        for(TimeSlot t: resultList){
+            Calendar notchedDate = notchToDay(t.getActivityTime());
+            foundDaysMap.put(notchedDate,t);
+        }
+        //Convert the map's keyset to a list
+        List<Calendar> foundDays = new ArrayList<Calendar>();
+        for(Calendar c : foundDaysMap.keySet()){
+            foundDays.add(c);
+        }
+
+        return foundDays;
+    }
+
+    public List<Calendar> getAvailableSlotsInDay(Calendar singleDate) {
+        Calendar startOfDay = Activity.notchToDay(singleDate);
+        Calendar endOfDay = Activity.notchToDay(singleDate);
+        endOfDay.add(Calendar.DAY_OF_YEAR, 1);
+
+        List<TimeSlot> resultList = TimeSlot.findTimeSlotsByHasCapacityEqualsAndActivityTimeBetween(Boolean.TRUE, startOfDay, endOfDay).getResultList();
+
+        List<Calendar> availableSlots = new ArrayList<Calendar>();
+        for(TimeSlot t: resultList ){
+            availableSlots.add(t.getActivityTime());
+        }
         return availableSlots;
     }
 
-    public void bookActivity(Calendar time) {
-        Calendar notchedToDay = notchToDay(time);
-        Map<Calendar, TimeSlot> timeSlots = getDaysSlots(notchedToDay);
-
-        if (timeSlots == null) {
-            throw new IllegalStateException("Attempted to book activity on invalid time slot");
-        }
-
-        TimeSlot t = timeSlots.get(time);
-
-        if(t.hasAvailableCapacity()){
-            t.bookTimeSlot();
-        }else{
-            throw new IllegalStateException("Time slot has no capacity");
-        }
-    }
-
-    public void addAvailability(Calendar activityDate, Integer capacity, Double cost) {
-        TimeSlot t = new TimeSlot(activityDate, capacity, cost);
-
-        Calendar notchedToDay = notchToDay(activityDate);
-        HashMap<Calendar, TimeSlot> timeSlots = getDaysSlots(notchedToDay);
-
-        if (timeSlots == null) {
-            timeSlots = new HashMap<Calendar, TimeSlot>();
-        }
-        timeSlots.put(activityDate, t);
-
-        timeSlotMap.put(notchedToDay, timeSlots);
-    }
-
-    private Calendar notchToDay(Calendar activityDate) {
+    public static  Calendar notchToDay(Calendar activityDate) {
         Calendar notchedToDay = (Calendar) activityDate.clone();
         notchedToDay.set(Calendar.HOUR_OF_DAY, 0);
         notchedToDay.set(Calendar.MINUTE, 0);
@@ -99,15 +95,4 @@ public class Activity {
         notchedToDay.set(Calendar.MILLISECOND, 0);
         return notchedToDay;
     }
-
-    private HashMap<Calendar, TimeSlot> getDaysSlots(Calendar notchedToDay) {
-        return timeSlotMap.get(notchedToDay);
-    }
-
-    /* Return the map of time slots for a given day. Day is expected to be notched to start of day  */
-    private Map<Calendar, TimeSlot> getSlotsForDay(Calendar day) {
-        return timeSlotMap.get(day);
-    }
-
-
 }
