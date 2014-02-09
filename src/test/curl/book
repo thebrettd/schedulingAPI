@@ -1,0 +1,1 @@
+curl -X POST -H "Content-Type: application/json" -d '{"date" : "02/08/2014 14:00"}' localhost:8081/activitys/book/1/
