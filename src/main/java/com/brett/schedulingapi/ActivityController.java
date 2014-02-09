@@ -22,6 +22,10 @@ public class ActivityController {
     public String addSchedule(@PathVariable("id") Long activityId, @RequestBody Availability availability, Model uiModel) throws ParseException {
         Activity activity = Activity.findActivity(activityId);
 
+        if (activity == null){
+            return "Unable to locate activity " + activityId;
+        }
+
         Calendar activityDate = new GregorianCalendar();
         DateFormat formatter = new SimpleDateFormat("MM/dd/yy HH:mm");
         Date date = formatter.parse(availability.getDate());
@@ -38,6 +42,10 @@ public class ActivityController {
     public String book(@PathVariable("id") Long activityId, @RequestBody Booking booking) throws ParseException {
         Activity activity = Activity.findActivity(activityId);
 
+        if (activity == null){
+            return "Unable to locate activity " + activityId;
+        }
+
         Calendar activityDate = new GregorianCalendar();
         DateFormat formatter = new SimpleDateFormat("MM/dd/yy HH:mm");
         Date date = formatter.parse(booking.getDate());
@@ -53,6 +61,10 @@ public class ActivityController {
     @ResponseBody
     public String queryRange(@PathVariable("id") Long activityId, @RequestBody RangeQuery rangeQuery) throws ParseException {
         Activity activity = Activity.findActivity(activityId);
+
+        if (activity == null){
+            return "Unable to locate activity " + activityId;
+        }
 
         Calendar startDate = new GregorianCalendar();
         DateFormat formatter = new SimpleDateFormat("MM/dd/yy HH:mm");
@@ -77,6 +89,10 @@ public class ActivityController {
     @ResponseBody
     public String queryDate(@PathVariable("id") Long activityId, @RequestBody DayQuery day) throws ParseException {
         Activity activity = Activity.findActivity(activityId);
+
+        if (activity == null){
+            return "Unable to locate activity " + activityId;
+        }
 
         Calendar singleDate = new GregorianCalendar();
         DateFormat formatter = new SimpleDateFormat("MM/dd/yy HH:mm");
