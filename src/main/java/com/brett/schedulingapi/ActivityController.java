@@ -21,7 +21,7 @@ public class ActivityController {
     @ResponseBody
     public String addSchedule(@RequestBody Activity activity) throws ParseException {
         activity.persist();
-        return "Added activity " + activity;
+        return "Added activity " + activity.getName();
     }
 
     @RequestMapping(value="/addAvailability/{id}", method = RequestMethod.POST, produces = "text/html")
@@ -91,7 +91,7 @@ public class ActivityController {
 
         StringBuilder response = new StringBuilder();
         for(Calendar availableDate : availableDatesInRange){
-            response.append(availableDate.toString()).append(",").append("\n");
+            response.append(availableDate.getTime().toString()).append("\n");
         }
 
         return "Found " + availableDatesInRange.size() + " days: " + response.toString();
