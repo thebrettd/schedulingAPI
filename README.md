@@ -21,6 +21,9 @@ API must be used to add availability, create bookings and execute queries
 
 Dates must be of the form MM/DD/YYYY HH24:mm i.e 02/08/2014 14:00 for 2/8/14 2pm
 
+The scripts in /schedulingAPI/src/test/curl can be used to manually test any of the API calls. Note that the script
+assumes the process is listening on port 8081
+
 Requests
 ======
 
