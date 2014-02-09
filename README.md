@@ -14,7 +14,8 @@ schedulingAPI
 Usage
 =====
 
-UI can be used to create vendors and activities
+UI can be used to create vendors and activities. Convenience methods exist so vendors/activities can be easily created
+through the API as well.
 
 API must be used to add availability, create bookings and execute queries
 
@@ -56,4 +57,22 @@ http://localhost:8081/activitys/queryDate/{id}
 Content-Type application/json
 
 { "startDate" : "02/08/2014 14:00"}
+```
+
+#addVendor
+```
+http://localhost:8081/vendors/addVendor
+
+Content-Type application/json
+
+{ "name" : "Vendor1"}
+```
+
+#addActivity
+```
+http://localhost:8081/vendors/addActivity
+
+Content-Type application/json
+
+{ "name" : "Vendor1"}
 ```
