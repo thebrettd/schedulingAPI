@@ -17,6 +17,13 @@ import java.util.List;
 @RooWebScaffold(path = "activitys", formBackingObject = Activity.class)
 public class ActivityController {
 
+    @RequestMapping(value="/addActivity", method = RequestMethod.POST, produces = "text/html")
+    @ResponseBody
+    public String addSchedule(@RequestBody Activity activity) throws ParseException {
+        activity.persist();
+        return "Added activity " + activity;
+    }
+
     @RequestMapping(value="/addAvailability/{id}", method = RequestMethod.POST, produces = "text/html")
     @ResponseBody
     public String addSchedule(@PathVariable("id") Long activityId, @RequestBody Availability availability, Model uiModel) throws ParseException {

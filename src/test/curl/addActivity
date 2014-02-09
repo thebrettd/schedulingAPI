@@ -1,0 +1,1 @@
+curl -X POST -H "Content-Type: application/json" -d '{"name": "Alcatraz Day Tour", "description" : "Tour the rock during the day"}' localhost:8081/activitys/addActivity
